@@ -7,10 +7,8 @@ function MyPosts () {
             <div>My posts
                <div>New posts</div>
                <div className={s.posts}>
-                  <Post/>
-                  <Post/>
-                  <Post/>
-                  <Post/>
+                  <Post message='Hey boy'/>
+                  <Post message='My first post'/>
                </div>
             </div>
    )
