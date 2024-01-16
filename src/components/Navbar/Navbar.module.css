@@ -1,0 +1,13 @@
+.nav{
+   grid-area: n;
+   background-color: lightblue;
+}ЮЮ
+
+.item {
+   color: white;
+}
+
+.item.active {
+   color: gold;
+   font-weight: 700;
+} 
