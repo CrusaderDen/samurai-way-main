@@ -1,10 +1,13 @@
 .header{
    grid-area: h;
    background-color: lightgreen;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .applogo {
-   height: 5vmin;
+   height: 10vmin;
    pointer-events: none;
  }
  

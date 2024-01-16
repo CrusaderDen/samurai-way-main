@@ -1,13 +1,20 @@
 .nav{
    grid-area: n;
    background-color: lightblue;
+   display: grid;
+   justify-items: center;
+   align-items: center;
 }
 
-.item{
-   color: white;
+
+.item a{
+   color: rgb(214, 31, 52);
+   text-decoration: none;
+   
 }
 
-/* .item.active {
-   color: gold;
+.item a.active {
+   color: rgb(33, 56, 205);
    font-weight: 700;
-}  */
+   font-size: 24px;
+} 
