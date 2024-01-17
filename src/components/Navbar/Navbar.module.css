@@ -10,6 +10,11 @@
 .item a{
    color: rgb(214, 31, 52);
    text-decoration: none;
+   display: flex;
+   height: 50px;
+   width: 100px;
+   align-items: center;
+   justify-content: center;
    
 }
 
