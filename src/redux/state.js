@@ -19,5 +19,25 @@ export const state = {
          {id: 4, message: "Хочу спать"},
       ],
    },
+   navbarPage: {
+      friends: [
+         {
+            id: 1,
+            avatar: "https://cs14.pikabu.ru/post_img/big/2023/02/13/8/1676295806139337963.png",
+            name: "Диман",
+         },
+         {
+            id: 2,
+            avatar:
+               "https://masterpiecer-images.s3.yandex.net/fec2be5d968d11eeb6343a7ca4cc1bdc:upscaled",
+            name: "Вован",
+         },
+         {
+            id: 3,
+            avatar:
+               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_vjjKVyV7K2L5aonii1WNkp6iOTYDFy3dlg&usqp=CAU",
+            name: "Серега",
+         },         
+      ],
+   },
 }
-

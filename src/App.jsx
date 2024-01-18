@@ -15,7 +15,7 @@ function App(props) {
       <BrowserRouter>
          <div className="app-wrapper">
             <Header />
-            <Navbar />
+            <Navbar state={props.state.navbarPage} />
             <div className="app-wrapper-content">
                <Switch>
                   <Route path={"/dialogs"}><Dialogs state={props.state.dialogsPage}/></Route>

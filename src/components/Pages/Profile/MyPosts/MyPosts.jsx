@@ -11,7 +11,7 @@ function MyPosts(props) {
         <h3>My posts</h3>
          <div>
             <div>
-               <textarea name="" id="" cols="30" rows="10"></textarea>
+               <textarea name="" id="" cols="30" rows="5"></textarea>
             </div>
             <div>
                <button>Добавить пост</button>
