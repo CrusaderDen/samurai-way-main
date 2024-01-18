@@ -18,8 +18,8 @@ function App(props) {
             <Navbar />
             <div className="app-wrapper-content">
                <Switch>
-                  <Route path={"/profile"}><Profile posts={props.posts} /></Route>
-                  <Route path={"/dialogs"}><Dialogs dialogs={props.dialogs} messages={props.messages}/></Route>
+                  <Route path={"/dialogs"}><Dialogs state={props.state.dialogsPage}/></Route>
+                  <Route path={"/profile"}><Profile state={props.state.profilePage} /></Route>
                   <Route path={"/news"} component={News} />
                   <Route path={"/music"} component={Music} />
                   <Route path={"/settings"} component={Settings} />
