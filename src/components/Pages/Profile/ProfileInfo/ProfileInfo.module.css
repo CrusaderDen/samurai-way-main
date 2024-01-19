@@ -3,5 +3,7 @@
 }
 
 .profile_Img {
-   width: 400px;
+   height: 200px;
+   width: 100%;
+   object-fit: cover;
 }
