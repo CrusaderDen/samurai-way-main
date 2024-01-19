@@ -1,6 +1,4 @@
-let rerenderEntireTree = () => {
-   console.log('State changed')
-}
+
 
 export const state = {
    profilePage: {
@@ -52,26 +50,28 @@ export const addPost = () => {
    const newPost = {id: 5, message: state.profilePage.newPostText, likesCount: 14}
    state.profilePage.posts.push(newPost)
    state.profilePage.newPostText=''
-   rerenderEntireTree()
+   rerender()
 }
 
 export const updateNewPostText = (newText) => {
    state.profilePage.newPostText=newText
-   rerenderEntireTree()
+   rerender()
 }
 
 export const addMessage = () => {
    const newMessage = {id: 10, message: state.dialogsPage.newMessageText}
    state.dialogsPage.messages.push(newMessage)
    state.dialogsPage.newMessageText=''
-   rerenderEntireTree()
+   rerender()
 }
 
 export const updateNewMessageText = (newText) => {
    state.dialogsPage.newMessageText = newText
-   rerenderEntireTree()
+   rerender()
 }
 
+let rerender
+
 export const subscribe = (observer) => {
-   rerenderEntireTree=observer
+   rerender=observer
 }
