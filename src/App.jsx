@@ -21,15 +21,13 @@ function App(props) {
                   <Route path={"/dialogs"}>
                      <Dialogs
                         state={props.state.dialogsPage}
-                        addMessage={props.addMessage}
-                        updateNewMessageText = {props.updateNewMessageText}
+                        dispatch={props.dispatch}
                      />
                   </Route>
                   <Route path={"/profile"}>
                      <Profile
                         profilePage={props.state.profilePage}
-                        addPost={props.addPost}
-                        updateNewPostText={props.updateNewPostText}
+                        dispatch={props.dispatch}
                      />
                   </Route>
                   <Route path={"/news"} component={News} />

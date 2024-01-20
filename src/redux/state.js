@@ -45,42 +45,64 @@ export const store = {
          ],
       },
    },
-
    getState() {
       return this._state
    },
-   //--------------------
-
-   addPost() {
-      let state = store.getState()
-      const newPost = {id: 5, message: state.profilePage.newPostText, likesCount: 14}
-      state.profilePage.posts.push(newPost)
-      state.profilePage.newPostText = ""
-      store._rerender()
-   },
-   updateNewPostText: (newText) => {
-      let state = store.getState()
-      state.profilePage.newPostText = newText
-      store._rerender()
-   },
-   addMessage() {
-      let state = store.getState()
-      const newMessage = {id: 10, message: state.dialogsPage.newMessageText}
-      state.dialogsPage.messages.push(newMessage)
-      state.dialogsPage.newMessageText = ""
-      store._rerender()
-   },
-   updateNewMessageText(newText) {
-      let state = store.getState()
-      state.dialogsPage.newMessageText = newText
-      console.log(newText)
-      store._rerender()
-   },
-   _rerender() {
+   _callSubscriber() {
       console.log("no subscribers(observers)")
    },
    subscribe(observer) {
-      store._rerender = observer
+      this._callSubscriber = observer
+   },
+
+   //--------------------
+
+   // addPost() {
+   //    const newPost = {id: 5, message: this._state.profilePage.newPostText, likesCount: 14}
+   //    this._state.profilePage.posts.push(newPost)
+   //    this._state.profilePage.newPostText = ""
+   //    this._callSubscriber(this._state)
+   // },
+   // updateNewPostText(newText) {
+   //    this._state.profilePage.newPostText = newText
+   //    this._callSubscriber(this._state)
+   // },
+   // addMessage() {
+   //    const newMessage = {id: 10, message: this._state.dialogsPage.newMessageText}
+   //    this._state.dialogsPage.messages.push(newMessage)
+   //    this._state.dialogsPage.newMessageText = ""
+   //    this._callSubscriber(this._state)
+   // },
+   // updateNewMessageText(newText) {
+   //    this._state.dialogsPage.newMessageText = newText
+   //    console.log(newText)
+   //    this._callSubscriber(this._state)
+   // },
+   dispatch(action) {
+      switch (action.type) {
+         case "ADD-POST":
+            const newPost = {id: 5, message: this._state.profilePage.newPostText, likesCount: 14}
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ""
+            this._callSubscriber(this._state)
+            break
+         case "UPDATE-NEW-POST-TEXT":
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+            break
+         case "ADD-MESSAGE":
+            const newMessage = {id: 10, message: this._state.dialogsPage.newMessageText}
+            this._state.dialogsPage.messages.push(newMessage)
+            this._state.dialogsPage.newMessageText = ""
+            this._callSubscriber(this._state)
+            break
+         case "UPDATE-NEW-MESSAGE-TEXT":
+            this._state.dialogsPage.newMessageText = action.newText
+            this._callSubscriber(this._state)
+            break
+         default:
+            console.log('Miss action name in store dispatch func')
+      }
    },
 }
 
@@ -138,30 +160,30 @@ export const addPost = () => {
    const newPost = {id: 5, message: state.profilePage.newPostText, likesCount: 14}
    state.profilePage.posts.push(newPost)
    state.profilePage.newPostText=''
-   rerender()
+   rerenderEntireTree()
 }
 
 export const updateNewPostText = (newText) => {
    state.profilePage.newPostText=newText
-   rerender()
+   rerenderEntireTree()
 }
 
 export const addMessage = () => {
    const newMessage = {id: 10, message: state.dialogsPage.newMessageText}
    state.dialogsPage.messages.push(newMessage)
    state.dialogsPage.newMessageText=''
-   rerender()
+   rerenderEntireTree()
 }
 
 export const updateNewMessageText = (newText) => {
    state.dialogsPage.newMessageText = newText
-   rerender()
+   rerenderEntireTree()
 }
 
-let rerender
+let rerenderEntireTree
 
 export const subscribe = (observer) => {
-   rerender=observer
+   rerenderEntireTree=observer
 }
 
 */

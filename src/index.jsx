@@ -8,19 +8,16 @@ import {store} from "./redux/state"
 
 
 
-const rerenderEntireTree = () => {
+const rerenderEntireTree = (state) => {
    ReactDOM.render(
       <App
-         state={store.getState()}
-         addPost={store.addPost}
-         updateNewPostText={store.updateNewPostText}
-         addMessage={store.addMessage}
-         updateNewMessageText={store.updateNewMessageText}
+         state={state}
+         dispatch={store.dispatch.bind(store)}
       />,
       document.getElementById("root")
    )
 }
 
-rerenderEntireTree()
+rerenderEntireTree(store.getState())
 
 store.subscribe(rerenderEntireTree)
